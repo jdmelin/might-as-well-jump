@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+// fonts
+@import "fonts";
+
+// colors
+$dark-green: #14a19c;
+$light-blue: #f0fcfd;
+$light-gray: #d2e5e2;
+$light-green: #41c8c3;
+$orange: #ffa800;
+$white: #fff;
+
+// base styles
+body {
+  background-color: $light-blue;
+  font-family: "Source Serif Pro", serif;
+  margin: 0;
+}
+
+// imports
+@import "app/views/index";
+@import "app/layouts/index";
+@import "app/components/index";

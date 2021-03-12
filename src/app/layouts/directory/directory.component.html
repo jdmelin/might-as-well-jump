@@ -1,0 +1,14 @@
+<section class="directory">
+  <div class="directory-header-row">
+    <div class="header-name">Name</div>
+    <div class="header-email">Email</div>
+  </div>
+  <div
+    *ngFor="let user of users"
+    class="directory-row"
+    (click)="selectUser(user.id)"
+  >
+    <div class="name">{{ user.firstname }} {{ user.lastname }}</div>
+    <div class="email">{{ user.email }}</div>
+  </div>
+</section>
