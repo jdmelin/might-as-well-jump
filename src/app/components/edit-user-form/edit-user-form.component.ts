@@ -8,6 +8,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class EditUserFormComponent implements OnInit {
   @Input() user: any;
+  isAttemptingDelete: boolean = false;
   form: any;
 
   constructor(private usersService: UsersService) {}
@@ -16,8 +17,8 @@ export class EditUserFormComponent implements OnInit {
     const { firstName, lastName, username, email } = this.user;
 
     this.form = new FormGroup({
-      firstname: new FormControl(firstName, Validators.required),
-      lastname: new FormControl(lastName, Validators.required),
+      firstname: new FormControl(firstName),
+      lastname: new FormControl(lastName),
       username: new FormControl(username, Validators.required),
       email: new FormControl(email, Validators.required),
     });
@@ -25,6 +26,15 @@ export class EditUserFormComponent implements OnInit {
 
   onSubmit() {
     const user = this.form.value;
+    Object.keys(user).forEach((k) => (user[k] = user[k].trim()));
     this.usersService.updateUser(user, this.user.id);
+  }
+
+  removeUser() {
+    this.usersService.deleteUser(this.user.id);
+  }
+
+  toggleDeleteConfirmation() {
+    this.isAttemptingDelete = !this.isAttemptingDelete;
   }
 }

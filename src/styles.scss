@@ -6,7 +6,8 @@ $black: #000;
 $dark-gray: #414c55;
 $dark-green: #14a19c;
 $light-blue: #f0fcfd;
-$light-gray: #d2e5e2;
+$light-grayish-green: #d2e5e2;
+$light-gray: #e3e8e9;
 $light-green: rgba(18, 154, 144, 0.08);
 $green: #41c8c3;
 $orange: #ffa800;
@@ -42,6 +43,11 @@ body {
   color: $dark-gray;
   font-family: "Source Serif Pro", serif;
   margin: 0;
+}
+
+button,
+input {
+  font-family: "Source Serif Pro", serif;
 }
 
 // imports

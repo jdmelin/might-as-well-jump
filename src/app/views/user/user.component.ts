@@ -51,10 +51,6 @@ export class UserComponent implements OnDestroy {
       });
   }
 
-  removeUser() {
-    this.usersService.deleteUser(this.user.id);
-  }
-
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

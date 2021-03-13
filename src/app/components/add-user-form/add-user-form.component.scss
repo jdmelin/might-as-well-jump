@@ -1,9 +1,55 @@
 .add-user-form {
-  background-color: $light-gray;
-  left: 50%;
-  padding: 2rem;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, calc(-50% + 35px));
-  width: 300px;
+  background-color: $light-grayish-green;
+  display: flex;
+  height: calc(100vh - 134px);
+  padding: 4rem 2rem 3rem;
+
+  input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid $green;
+    box-sizing: border-box;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    outline: none;
+    text-align: center;
+    transition: border-color 0.15s;
+    width: 100%;
+
+    &:focus {
+      border-color: $dark-green;
+    }
+  }
+
+  .button-container {
+    text-align: center;
+
+    button {
+      background-color: $orange;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      outline: none;
+      padding: 0.5rem 1rem;
+
+      &:disabled {
+        background-color: $light-gray;
+        cursor: default;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .add-user-form {
+    height: auto;
+    left: 50%;
+    max-width: 600px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, calc(-50% + 35px));
+    width: 50%;
+  }
 }

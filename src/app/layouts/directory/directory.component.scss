@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   margin: auto;
-  max-width: 996px;
+  max-width: 768px;
   overflow: auto;
   padding: 2rem;
   position: relative;
@@ -17,10 +17,10 @@
     border-radius: 50%;
     cursor: pointer;
     height: 41px;
-    left: 25px;
+    left: 30px;
     outline: none;
     position: absolute;
-    top: 64px;
+    top: 62px;
     transition: background-color 0.15s;
     width: 41px;
 
@@ -113,7 +113,7 @@
 
   .ghost-row {
     animation: pulsate 1.5s infinite;
-    background-color: $light-gray;
+    background-color: $light-grayish-green;
     height: 40px;
     margin-bottom: 1rem;
     width: 100%;

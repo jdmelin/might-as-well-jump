@@ -1,23 +1,11 @@
 <section class="add-user-form">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <p>
-      <label>First Name:</label>
-      <input type="text" formControlName="firstname" />
-    </p>
-    <p>
-      <label>Last Name:</label>
-      <input type="text" formControlName="lastname" />
-    </p>
-    <p>
-      <label>Username:</label>
-      <input type="text" formControlName="username" />
-    </p>
-    <p>
-      <label>Email:</label>
-      <input type="email" formControlName="email" />
-    </p>
-    <p>
+    <input type="text" formControlName="firstname" placeholder="First Name" />
+    <input type="text" formControlName="lastname" placeholder="Last Name" />
+    <input type="text" formControlName="username" placeholder="*Username" />
+    <input type="email" formControlName="email" placeholder="*Email" email />
+    <div class="button-container">
       <button type="submit" [disabled]="!form.valid">Add New User</button>
-    </p>
+    </div>
   </form>
 </section>
