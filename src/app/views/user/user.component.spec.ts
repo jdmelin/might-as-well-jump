@@ -6,7 +6,7 @@ import { provideMockStore } from '@ngrx/store/testing';
 import { initialAppState } from 'src/app/store/reducers';
 import { UserComponent } from './user.component';
 
-fdescribe('UserComponent', () => {
+describe('UserComponent', () => {
   let component: UserComponent;
   let fixture: ComponentFixture<UserComponent>;
 

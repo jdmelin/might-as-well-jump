@@ -4,7 +4,6 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { User } from 'src/app/models/user.model';
 import { StateService } from 'src/app/services/state.service';
-import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-users',
@@ -21,9 +20,7 @@ export class UsersComponent implements OnInit, OnDestroy {
   users: User[] = [];
   unsubscribe$ = new Subject();
 
-  constructor(private stateService: StateService, usersService: UsersService) {
-    usersService.fetchUsers();
-  }
+  constructor(private stateService: StateService) {}
 
   ngOnInit(): void {
     this.stateService
