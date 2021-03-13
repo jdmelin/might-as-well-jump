@@ -17,7 +17,7 @@ describe('DirectoryComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the directory component', () => {
     expect(component).toBeTruthy();
   });
 });

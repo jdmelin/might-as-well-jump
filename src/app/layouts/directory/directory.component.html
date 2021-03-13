@@ -1,14 +1,27 @@
 <section class="directory">
-  <div class="directory-header-row">
-    <div class="header-name">Name</div>
-    <div class="header-email">Email</div>
+  <div class="add-user-button" [routerLink]="['/add-user']"></div>
+  <h1 class="heading">Users Directory</h1>
+  <div *ngIf="!loading && users.length">
+    <div class="directory-header-row">
+      <div class="header-name">Name</div>
+      <div class="header-email">Username</div>
+      <div class="header-email">Email</div>
+    </div>
+    <div
+      *ngFor="let user of users"
+      class="directory-row"
+      (click)="selectUser(user.id)"
+    >
+      <div class="name">{{ user.firstName }} {{ user.lastName }}</div>
+      <div class="email">{{ user.username }}</div>
+      <div class="email">{{ user.email }}</div>
+    </div>
   </div>
-  <div
-    *ngFor="let user of users"
-    class="directory-row"
-    (click)="selectUser(user.id)"
-  >
-    <div class="name">{{ user.firstname }} {{ user.lastname }}</div>
-    <div class="email">{{ user.email }}</div>
+  <div *ngIf="noUsers" class="no-users">
+    No Users available. Please
+    <a [routerLink]="['/add-user']">add a new user.</a>
+  </div>
+  <div *ngIf="loading" class="ghost-content">
+    <div *ngFor="let row of [0, 1, 2, 3]" class="ghost-row"></div>
   </div>
 </section>

@@ -1,0 +1,50 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+
+  .tile {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    height: calc(50vh - 72px);
+    justify-content: center;
+    outline: none;
+    width: 100%;
+
+    &:hover {
+      animation: fadeIn 0.15s;
+      background-color: $light-green;
+      color: $dark-green;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+  .divider {
+    background-color: $green;
+    height: 2px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home {
+    flex-direction: row;
+
+    .tile,
+    .divider {
+      height: calc(100vh - 134px);
+    }
+
+    .tile {
+      width: 100%;
+    }
+
+    .divider {
+      width: 5px;
+    }
+  }
+}

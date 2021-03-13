@@ -1,0 +1,9 @@
+.add-user-form {
+  background-color: $light-gray;
+  left: 50%;
+  padding: 2rem;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, calc(-50% + 35px));
+  width: 300px;
+}

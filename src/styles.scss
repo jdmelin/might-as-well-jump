@@ -2,16 +2,44 @@
 @import "fonts";
 
 // colors
+$black: #000;
+$dark-gray: #414c55;
 $dark-green: #14a19c;
 $light-blue: #f0fcfd;
 $light-gray: #d2e5e2;
-$light-green: #41c8c3;
+$light-green: rgba(18, 154, 144, 0.08);
+$green: #41c8c3;
 $orange: #ffa800;
 $white: #fff;
+
+// animations
+@keyframes fadeIn {
+  from {
+    background-color: $light-blue;
+    color: $dark-gray;
+  }
+  to {
+    background-color: $light-green;
+    color: $dark-green;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
 
 // base styles
 body {
   background-color: $light-blue;
+  color: $dark-gray;
   font-family: "Source Serif Pro", serif;
   margin: 0;
 }

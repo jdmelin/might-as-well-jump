@@ -1,20 +1,140 @@
 .directory {
   display: flex;
   flex-direction: column;
+  margin: auto;
+  max-width: 996px;
+  overflow: auto;
   padding: 2rem;
+  position: relative;
+
+  .heading {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .add-user-button {
+    background-color: $light-green;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 41px;
+    left: 25px;
+    outline: none;
+    position: absolute;
+    top: 64px;
+    transition: background-color 0.15s;
+    width: 41px;
+
+    &:hover {
+      background-color: $green;
+
+      &:before {
+        background-color: $dark-green;
+      }
+
+      &:after {
+        background-color: $dark-green;
+      }
+    }
+
+    &:before {
+      content: "";
+      background-color: $green;
+      height: 5px;
+      outline: none;
+      position: absolute;
+      right: 8px;
+      top: 18px;
+      transition: background-color 0.15s;
+      width: 25px;
+    }
+
+    &:after {
+      background-color: $green;
+      content: "";
+      height: 25px;
+      position: absolute;
+      right: 18px;
+      top: 8px;
+      transition: background-color 0.15s;
+      width: 5px;
+    }
+  }
 }
 
 .directory-header-row,
 .directory-row {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 0;
+
+  .header-name,
+  .header-username,
+  .header-email,
+  .name,
+  .username,
+  .email {
+    width: 33%;
+  }
+
+  .header-name,
+  .header-username,
+  .header-email {
+    padding: 0 1rem;
+  }
+}
+
+.directory-header-row {
+  border-bottom: 2px solid $green;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .directory-row {
-  .name {
+  cursor: pointer;
+
+  &:hover {
+    animation: fadeIn 0.15s;
+    background-color: $light-green;
+    color: $dark-green;
   }
 
+  .name,
+  .username,
   .email {
+    overflow: hidden;
+    padding: 0 0.25rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.ghost-content {
+  margin-top: 1rem;
+
+  .ghost-row {
+    animation: pulsate 1.5s infinite;
+    background-color: $light-gray;
+    height: 40px;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+}
+
+.no-users {
+  margin: 2rem;
+  text-align: center;
+
+  a {
+    color: $green;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .directory-row {
+    .name,
+    .username,
+    .email {
+      padding: 0 1rem;
+    }
   }
 }

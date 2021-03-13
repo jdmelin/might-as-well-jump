@@ -1,4 +1,7 @@
-<main>
-  <h1>Users</h1>
-  <directory *ngIf="users" [users]="users"></directory>
+<main [@fadeIn]>
+  <directory
+    [users]="users"
+    [loading]="loading"
+    [noUsers]="noUsers"
+  ></directory>
 </main>

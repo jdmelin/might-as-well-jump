@@ -1,4 +1,18 @@
 .nav {
+  align-items: center;
   background-color: $dark-green;
+  display: flex;
   height: 70px;
+  justify-content: center;
+
+  .logo {
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.15s;
+    width: 100px;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+  }
 }

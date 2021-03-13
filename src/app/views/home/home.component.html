@@ -1,4 +1,9 @@
-<main>
-  <h1>Home</h1>
-  <a href="/users">Users</a>
+<main class="home" [@fadeIn]>
+  <div class="tile" [routerLink]="['add-user']">
+    <h2>Add a New User</h2>
+  </div>
+  <div class="divider"></div>
+  <div class="tile" [routerLink]="['users']">
+    <h2>View Users Directory</h2>
+  </div>
 </main>
