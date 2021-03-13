@@ -3,13 +3,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
-  selector: 'edit-user-form',
+  selector: 'app-edit-user-form',
   templateUrl: './edit-user-form.component.html',
 })
 export class EditUserFormComponent implements OnInit {
   @Input() user: any;
-  isAttemptingDelete: boolean = false;
-  form: any;
+  form = new FormGroup({});
+  isAttemptingDelete = false;
 
   constructor(private usersService: UsersService) {}
 
@@ -24,17 +24,17 @@ export class EditUserFormComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     const user = this.form.value;
     Object.keys(user).forEach((k) => (user[k] = user[k].trim()));
     this.usersService.updateUser(user, this.user.id);
   }
 
-  removeUser() {
+  removeUser(): void {
     this.usersService.deleteUser(this.user.id);
   }
 
-  toggleDeleteConfirmation() {
+  toggleDeleteConfirmation(): void {
     this.isAttemptingDelete = !this.isAttemptingDelete;
   }
 }

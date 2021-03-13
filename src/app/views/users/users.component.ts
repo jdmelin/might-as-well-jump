@@ -16,8 +16,8 @@ import { UsersService } from 'src/app/services/users.service';
   ],
 })
 export class UsersComponent implements OnInit, OnDestroy {
-  loading: boolean = true;
-  noUsers: boolean = false;
+  loading = true;
+  noUsers = false;
   users: User[] = [];
   unsubscribe$ = new Subject();
 
@@ -25,7 +25,7 @@ export class UsersComponent implements OnInit, OnDestroy {
     usersService.fetchUsers();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.stateService
       .getUsers()
       .pipe(takeUntil(this.unsubscribe$))
@@ -43,7 +43,7 @@ export class UsersComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

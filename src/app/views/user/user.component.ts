@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -9,7 +9,7 @@ import { UsersService } from 'src/app/services/users.service';
 import { initialSelectedUser } from 'src/app/store/reducers/selectedUser.reducer';
 
 @Component({
-  selector: 'user',
+  selector: 'app-user',
   templateUrl: './user.component.html',
   animations: [
     trigger('fadeIn', [
@@ -17,7 +17,7 @@ import { initialSelectedUser } from 'src/app/store/reducers/selectedUser.reducer
     ]),
   ],
 })
-export class UserComponent implements OnDestroy {
+export class UserComponent implements OnInit, OnDestroy {
   user: User = initialSelectedUser;
   unsubscribe$ = new Subject();
 
@@ -27,7 +27,7 @@ export class UserComponent implements OnDestroy {
     private usersService: UsersService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id') || '';
 
     // if hitting route directly (no users in the state array), fetch user
@@ -51,7 +51,7 @@ export class UserComponent implements OnDestroy {
       });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

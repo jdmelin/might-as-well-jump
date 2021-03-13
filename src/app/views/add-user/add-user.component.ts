@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-add-user',
@@ -10,8 +10,4 @@ import { Component, OnInit } from '@angular/core';
     ]),
   ],
 })
-export class AddUserComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class AddUserComponent {}

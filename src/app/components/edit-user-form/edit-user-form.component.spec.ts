@@ -17,7 +17,7 @@ describe('EditUserFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create Edit User Form component', () => {
     expect(component).toBeTruthy();
   });
 });

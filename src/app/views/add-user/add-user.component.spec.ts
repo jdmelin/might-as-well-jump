@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddUserComponent } from './add-user.component';
 
 describe('AddUserComponent', () => {
@@ -8,6 +9,7 @@ describe('AddUserComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AddUserComponent],
+      imports: [BrowserAnimationsModule],
     }).compileComponents();
   });
 
@@ -17,7 +19,7 @@ describe('AddUserComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create Add User component', () => {
     expect(component).toBeTruthy();
   });
 });

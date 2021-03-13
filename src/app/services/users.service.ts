@@ -40,7 +40,7 @@ export class UsersService {
     return formattedUsers;
   }
 
-  private reFetchAndNavigateToUsers() {
+  private reFetchAndNavigateToUsers(): void {
     this.stateService.setUsers([]);
     this.fetchUsers();
     this.router.navigate(['users']);
@@ -55,7 +55,7 @@ export class UsersService {
   deleteUser(id: string): void {
     const params = new HttpParams().append('id', id);
     this.http
-      .delete(`${environment.apiUrl}/systemusers/${id}`, { params: params })
+      .delete(`${environment.apiUrl}/systemusers/${id}`, { params })
       .subscribe(() => this.reFetchAndNavigateToUsers());
   }
 
@@ -72,7 +72,7 @@ export class UsersService {
   fetchUserById(id: string): void {
     const params = new HttpParams().append('id', id);
     this.http
-      .get(`${environment.apiUrl}/systemusers/${id}`, { params: params })
+      .get(`${environment.apiUrl}/systemusers/${id}`, { params })
       .subscribe(
         (userResponse: any) => {
           if (!userResponse) {
@@ -89,7 +89,7 @@ export class UsersService {
   updateUser(user: User, id: string): void {
     const params = new HttpParams().append('id', id);
     this.http
-      .put(`${environment.apiUrl}/systemusers/${id}`, user, { params: params })
+      .put(`${environment.apiUrl}/systemusers/${id}`, user, { params })
       .subscribe(() => this.reFetchAndNavigateToUsers());
   }
 }

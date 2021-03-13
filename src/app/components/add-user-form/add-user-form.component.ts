@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
-  selector: 'add-user-form',
+  selector: 'app-add-user-form',
   templateUrl: './add-user-form.component.html',
 })
 export class AddUserFormComponent {
@@ -15,7 +15,7 @@ export class AddUserFormComponent {
   });
   constructor(private usersService: UsersService) {}
 
-  onSubmit() {
+  onSubmit(): void {
     const user = this.form.value;
     Object.keys(user).forEach((k) => (user[k] = user[k].trim()));
     this.usersService.createUser(user);
