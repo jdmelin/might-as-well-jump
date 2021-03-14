@@ -1,6 +1,7 @@
 .edit-user-form {
   background-color: $light-green;
   display: flex;
+  flex-direction: column;
   height: calc(100vh - 134px);
   padding: 4rem 2rem 3rem;
 
@@ -28,6 +29,7 @@
     text-align: center;
 
     button {
+      background-color: $orange;
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -36,15 +38,12 @@
       margin-top: 1rem;
       outline: none;
       padding: 0.5rem 1rem;
-      width: 50%;
+      transition: background-color 0.15s;
+      width: 100%;
 
       &:disabled {
         background-color: $light-gray;
         cursor: default;
-      }
-
-      &.update-button {
-        background-color: $orange;
       }
 
       &.remove-button {
@@ -71,6 +70,16 @@
 
       &.cancel-button {
         background-color: $light-gray;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .edit-user-form {
+    .button-container {
+      button {
+        width: 50%;
       }
     }
   }

@@ -1,7 +1,8 @@
 .home {
   display: flex;
   flex-direction: column;
-  margin: 2rem;
+  max-width: 1024px;
+  margin: 2rem auto;
 
   .tile {
     align-items: center;

@@ -17,10 +17,6 @@
       <div class="email">{{ user.email }}</div>
     </div>
   </div>
-  <div *ngIf="noUsers" class="no-users">
-    No Users available. Please
-    <a [routerLink]="['/add-user']">add a new user.</a>
-  </div>
   <div *ngIf="loading" class="ghost-content">
     <div *ngFor="let row of [0, 1, 2, 3]" class="ghost-row"></div>
   </div>

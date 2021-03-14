@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { User } from '../models/user.model';
-import { setSelectedUser } from '../store/actions/selectedUser.actions';
-import { setUsers } from '../store/actions/users.actions';
-import { AppState } from '../store/reducers';
+import { User } from '../../models/user.model';
+import { setSelectedUser } from '../../store/actions/selectedUser.actions';
+import { setUsers } from '../../store/actions/users.actions';
+import { AppState } from '../../store/reducers';
 
 @Injectable({
   providedIn: 'root',

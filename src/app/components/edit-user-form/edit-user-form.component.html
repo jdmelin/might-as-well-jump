@@ -5,26 +5,26 @@
     <input type="text" formControlName="username" placeholder="*Username" />
     <input type="email" formControlName="email" placeholder="*Email" />
     <div class="button-container">
-      <button class="update-button" type="submit" [disabled]="!form.valid">
-        Update User
-      </button>
-      <button
-        type="button"
-        class="remove-button"
-        *ngIf="!isAttemptingDelete"
-        (click)="toggleDeleteConfirmation()"
-      >
-        Remove User
-      </button>
-      <div *ngIf="isAttemptingDelete">
-        <p class="cancel-text">You sure? This action can't be undone.</p>
-        <div class="delete-buttons">
-          <button class="confirm-button" (click)="removeUser()">Yes</button>
-          <button class="cancel-button" (click)="toggleDeleteConfirmation()">
-            Cancel
-          </button>
-        </div>
-      </div>
+      <button type="submit" [disabled]="!form.valid">Update User</button>
     </div>
   </form>
+  <div class="button-container">
+    <button
+      type="button"
+      class="remove-button"
+      *ngIf="!isAttemptingDelete"
+      (click)="toggleDeleteConfirmation()"
+    >
+      Remove User
+    </button>
+    <div *ngIf="isAttemptingDelete">
+      <p class="cancel-text">You sure? This action can't be undone.</p>
+      <div class="delete-buttons">
+        <button class="confirm-button" (click)="removeUser()">Yes</button>
+        <button class="cancel-button" (click)="toggleDeleteConfirmation()">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
 </section>

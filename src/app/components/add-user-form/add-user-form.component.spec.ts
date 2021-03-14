@@ -1,4 +1,9 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { provideMockStore } from '@ngrx/store/testing';
+import { initialAppState } from 'src/app/store/reducers';
 import { AddUserFormComponent } from './add-user-form.component';
 
 describe('AddUserFormComponent', () => {
@@ -8,6 +13,12 @@ describe('AddUserFormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AddUserFormComponent],
+      imports: [
+        HttpClientTestingModule,
+        ReactiveFormsModule,
+        RouterTestingModule,
+      ],
+      providers: [provideMockStore({ initialState: initialAppState })],
     }).compileComponents();
   });
 

@@ -3,7 +3,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { User } from 'src/app/models/user.model';
-import { StateService } from 'src/app/services/state.service';
+import { StateService } from 'src/app/services/state-service/state.service';
+import { UsersService } from 'src/app/services/users-service/users.service';
 
 @Component({
   selector: 'app-users',
@@ -16,26 +17,25 @@ import { StateService } from 'src/app/services/state.service';
 })
 export class UsersComponent implements OnInit, OnDestroy {
   loading = true;
-  noUsers = false;
   users: User[] = [];
   unsubscribe$ = new Subject();
 
-  constructor(private stateService: StateService) {}
+  constructor(
+    private stateService: StateService,
+    private usersService: UsersService
+  ) {}
 
   ngOnInit(): void {
     this.stateService
       .getUsers()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((users: User[]) => {
-        // TODO: clean this up?
-
-        this.users = users;
-
-        if (users.length) {
-          this.noUsers = false;
-          this.loading = false;
+        // if there are no users,fetch the them; otherwise, set the users to the users in state
+        if (!users.length) {
+          this.usersService.fetchUsers();
         } else {
-          this.noUsers = true;
+          this.users = users;
+          this.loading = false;
         }
       });
   }

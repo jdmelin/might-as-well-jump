@@ -1,27 +1,30 @@
-# MightAsWellJump
+# Might As Well Jump
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
+## I get up and nothin' gets me down
 
-## Development server
+1. Run `npm install`.
+2. Run `ng serve` (or `npm run start`) and visit the app at `http://localhost:4200`.
+3. Run `ng test` (or `npm run test`) to execute the unit tests.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## You got it tough, I've seen the toughest around
 
-## Code scaffolding
+<img src="src/assets/docs/home_desktop.png" style="display: block; margin-bottom: 1rem; width: 500px"/>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## And I know, baby, just how you feel
 
-## Build
+<img src="src/assets/docs/home_mobile.png" style="display: block; margin-bottom: 1rem; width: 250px"/>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## You got to roll with the punches and get to what's real
 
-## Running end-to-end tests
+## Ah, can't you see me standin' here
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## I got my back against the record machine
 
-## Further help
+## I ain't the worst that you've seen
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Ah, can't you see what I mean?
+
+
+## Ah, might as well jump ([jump](https://www.youtube.com/watch?v=SwYN7mTi6HM))
