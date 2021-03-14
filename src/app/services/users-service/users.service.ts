@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserForm } from 'src/app/models/userForm.model';
 import { environment } from 'src/environments/environment';
 import { User } from '../../models/user.model';
 import { StateService } from '../state-service/state.service';
@@ -45,7 +46,7 @@ export class UsersService {
     this.router.navigate(['users']);
   }
 
-  createUser(user: User): void {
+  createUser(user: UserForm): void {
     console.log('POST user call');
 
     this.http.post(`${environment.apiUrl}/systemusers`, user).subscribe(
@@ -92,6 +93,15 @@ export class UsersService {
       },
       () => this.router.navigate(['users'])
     );
+  }
+
+  getUserFromStateUsers(id: string): void {
+    this.stateService.getUsers().subscribe((users: User[]) => {
+      const user = users.find((user: User) => user.id === id);
+      if (user) {
+        this.stateService.setSelectedUser(user);
+      }
+    });
   }
 
   updateUser(user: User, id: string): void {

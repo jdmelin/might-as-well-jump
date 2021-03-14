@@ -34,10 +34,13 @@ export class UserComponent implements OnInit, OnDestroy {
       .getSelectedUser()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((user: User) => {
-        // if there's no selectedUser or the current selectedUser id does not match the route id, fetch the correct user;
+        // if there's no selectedUser fetch the correct user;
+        //   if the current selectedUser id does not match the route id, find the user from state users;
         //   otherwise, set the user to the current selectedUser in state
-        if (!user.id || user.id !== id) {
+        if (!user.id) {
           this.usersService.fetchUserById(id);
+        } else if (user.id !== id) {
+          this.usersService.getUserFromStateUsers(id);
         } else {
           this.user = user;
         }

@@ -1,14 +1,17 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockStore } from '@ngrx/store/testing';
+import { UsersService } from 'src/app/services/users-service/users.service';
 import { initialAppState } from 'src/app/store/reducers';
+import userFormMock from 'src/mocks/userForm.mock';
 import { AddUserFormComponent } from './add-user-form.component';
 
 describe('AddUserFormComponent', () => {
   let component: AddUserFormComponent;
   let fixture: ComponentFixture<AddUserFormComponent>;
+  let usersService: UsersService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -20,6 +23,7 @@ describe('AddUserFormComponent', () => {
       ],
       providers: [provideMockStore({ initialState: initialAppState })],
     }).compileComponents();
+    usersService = TestBed.inject(UsersService);
   });
 
   beforeEach(() => {
@@ -30,5 +34,18 @@ describe('AddUserFormComponent', () => {
 
   it('should create Add User component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should create user on submit', () => {
+    const user = userFormMock;
+    component.form = new FormGroup({
+      firstname: new FormControl('John'),
+      lastname: new FormControl('Smith'),
+      username: new FormControl('jsmith'),
+      email: new FormControl('jsmith@test.com'),
+    });
+    spyOn(usersService, 'createUser');
+    component.onSubmit();
+    expect(usersService.createUser).toHaveBeenCalledWith(user);
   });
 });

@@ -8,6 +8,7 @@ import { of, throwError } from 'rxjs';
 import { initialAppState } from 'src/app/store/reducers';
 import { environment } from 'src/environments/environment';
 import userMock from 'src/mocks/user.mock';
+import userFormMock from 'src/mocks/userForm.mock';
 import usersMock from 'src/mocks/users.mock';
 import { StateService } from '../state-service/state.service';
 import { UsersService } from './users.service';
@@ -34,7 +35,7 @@ describe('UsersService', () => {
   });
 
   it('should create user', () => {
-    const user = userMock;
+    const user = userFormMock;
     spyOn(http, 'post').and.returnValue(of({}));
     spyOn(service as any, 'resetAndNavigateToUsers');
     service.createUser(user);
@@ -114,6 +115,14 @@ describe('UsersService', () => {
       `${environment.apiUrl}/systemusers/${id}`
     );
     expect(router.navigate).toHaveBeenCalledWith(['users']);
+  });
+
+  it('should get user from state users if user exists', () => {
+    const user = userMock;
+    spyOn(stateService, 'getUsers').and.returnValue(of(usersMock));
+    spyOn(stateService, 'setSelectedUser');
+    service.getUserFromStateUsers(user.id);
+    expect(stateService.setSelectedUser).toHaveBeenCalledWith(user);
   });
 
   it('should update user', () => {
