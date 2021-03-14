@@ -41,6 +41,10 @@
       transition: background-color 0.15s;
       width: 100%;
 
+      &:hover {
+        background-color: $dark-orange;
+      }
+
       &:disabled {
         background-color: $light-gray;
         cursor: default;
@@ -48,11 +52,16 @@
 
       &.remove-button {
         background-color: $light-gray;
+
+        &:hover {
+          background-color: $light-grayish-green;
+        }
       }
     }
   }
 
   .cancel-text {
+    color: $black;
     font-size: 1.25rem;
   }
 
@@ -60,16 +69,25 @@
     display: flex;
     justify-content: space-between;
 
-    button {
+    .confirm-button,
+    .cancel-button {
       margin: 0;
       width: 45%;
+    }
 
-      &.confirm-button {
-        background-color: $orange;
+    .confirm-button {
+      background-color: $orange;
+
+      &:hover {
+        background-color: $dark-orange;
       }
+    }
 
-      &.cancel-button {
-        background-color: $light-gray;
+    .cancel-button {
+      background-color: $light-gray;
+
+      &:hover {
+        background-color: $light-grayish-green;
       }
     }
   }
