@@ -5,7 +5,7 @@
 1. Run `npm install`.
 2. Run `ng serve` (or `npm run start`) and visit the app at `http://localhost:4200`.
 3. Run `ng test` (or `npm run test`) to execute the unit tests.
-4. Run the API at `http://localhost:8005/api` (instructions in relevant repo);
+4. Run the API at `http://localhost:8005/api` (instructions in relevant repo).
 
 ## 🎶 You got it tough, I've seen the toughest around 🎵 _(not so tough endpoints)_
 
