@@ -13,7 +13,7 @@ export class EditUserFormComponent implements OnInit {
 
   constructor(private usersService: UsersService) {}
 
-  ngOnInit(): void {
+  private setForm(): void {
     const { firstName, lastName, username, email } = this.user;
 
     this.form = new FormGroup({
@@ -22,6 +22,10 @@ export class EditUserFormComponent implements OnInit {
       username: new FormControl(username, Validators.required),
       email: new FormControl(email, Validators.required),
     });
+  }
+
+  ngOnInit(): void {
+    this.setForm();
   }
 
   onSubmit(): void {

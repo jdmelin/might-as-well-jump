@@ -127,12 +127,13 @@ describe('UsersService', () => {
 
   it('should update user', () => {
     const user = userMock;
+    const userForm = userFormMock;
     spyOn(http, 'put').and.returnValue(of({}));
     spyOn(service as any, 'resetAndNavigateToUsers');
-    service.updateUser(user, user.id);
+    service.updateUser(userForm, user.id);
     expect(http.put).toHaveBeenCalledWith(
       `${environment.apiUrl}/systemusers/${user.id}`,
-      user
+      userForm
     );
     expect((service as any).resetAndNavigateToUsers).toHaveBeenCalled();
   });

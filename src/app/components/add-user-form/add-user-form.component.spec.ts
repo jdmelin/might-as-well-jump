@@ -36,10 +36,10 @@ describe('AddUserFormComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should create user on submit', () => {
+  it('should create user with trimmed content on submit', () => {
     const user = userFormMock;
     component.form = new FormGroup({
-      firstname: new FormControl('John'),
+      firstname: new FormControl('John   '),
       lastname: new FormControl('Smith'),
       username: new FormControl('jsmith'),
       email: new FormControl('jsmith@test.com'),

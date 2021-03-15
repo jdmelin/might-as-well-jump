@@ -7,7 +7,6 @@ import { User } from 'src/app/models/user.model';
   templateUrl: './directory.component.html',
 })
 export class DirectoryComponent {
-  @Input() loading = true;
   @Input() users: User[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router) {}

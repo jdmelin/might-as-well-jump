@@ -16,7 +16,6 @@ import { UsersService } from 'src/app/services/users-service/users.service';
   ],
 })
 export class UsersComponent implements OnInit, OnDestroy {
-  loading = true;
   users: User[] = [];
   unsubscribe$ = new Subject();
 
@@ -35,7 +34,6 @@ export class UsersComponent implements OnInit, OnDestroy {
           this.usersService.fetchUsers();
         } else {
           this.users = users;
-          this.loading = false;
         }
       });
   }
